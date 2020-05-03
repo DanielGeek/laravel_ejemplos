@@ -15,6 +15,7 @@
                 @endforeach
             </ul>
         </div>
+        
         @endif
         <form method="post" action="{{action('StudentController@update', $id)}}">
             {{csrf_field()}}
