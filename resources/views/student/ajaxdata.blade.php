@@ -24,6 +24,7 @@
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Action</th>
         </tr>
         </thead>
     </table>
@@ -50,6 +51,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="student_id" id="student_id" value="" />
                     <input type="hidden" name="button_action" id="button_action" value="insert" />
                     <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -67,7 +69,8 @@
             "ajax": "{{ route('ajaxdata.getdata') }}",
             "columns":[
                 { "data": "first_name" },
-                { "data": "last_name" }
+                { "data": "last_name" },
+                { "data": "action", orderable:false, searchable: false}
             ]
         });
 
@@ -110,6 +113,28 @@
                 }
             })
         });
+
+        $(document).on('click', '.edit', function(){
+            var id = $(this).attr("id");
+            $('#form_output').html('');
+            $.ajax({
+                url:"{{route('ajaxdata.fetchdata')}}",
+                method:'get',
+                data:{id:id},
+                dataType:'json',
+                success:function(data)
+                {
+                    $('#first_name').val(data.first_name);
+                    $('#last_name').val(data.last_name);
+                    $('#student_id').val(id);
+                    $('#studentModal').modal('show');
+                    $('#action').val('Edit');
+                    $('.modal-title').text('Edit Data');
+                    $('#button_action').val('update');
+                }
+            })
+        });
+
     });
 </script>
 </body>

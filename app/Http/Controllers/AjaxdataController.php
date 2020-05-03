@@ -17,8 +17,12 @@ class AjaxdataController extends Controller
 
     function getdata()
     {
-        $students = Student::select('first_name', 'last_name');
-        return Datatables::of($students)->make(true);
+        $students = Student::select('id', 'first_name', 'last_name');
+        return Datatables::of($students)
+            ->addColumn('action', function($student){
+                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$student->id.'"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            })
+            ->make(true);
     }
 
     function postdata(Request $request)
@@ -48,10 +52,30 @@ class AjaxdataController extends Controller
                 $student->save();
                 $success_output = '<div class="alert alert-success">Data Inserted</div>';
             }
+
+            if($request->get('button_action') == 'update')
+            {
+                $student = Student::find($request->get('student_id'));
+                $student->first_name = $request->get('first_name');
+                $student->last_name = $request->get('last_name');
+                $student->save();
+                $success_output = '<div class="alert alert-success">Data Updated</div>';
+            }
         }
         $output = array(
             'error'     =>  $error_array,
             'success'   =>  $success_output
+        );
+        echo json_encode($output);
+    }
+
+    function fetchdata(Request $request)
+    {
+        $id = $request->input('id');
+        $student = Student::find($id);
+        $output = array(
+            'first_name'    =>  $student->first_name,
+            'last_name'     =>  $student->last_name
         );
         echo json_encode($output);
     }
