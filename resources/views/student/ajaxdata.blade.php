@@ -25,6 +25,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Action</th>
+            <th><button type="button" name="bulk_delete" id="bulk_delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></button></th>
         </tr>
         </thead>
     </table>
@@ -70,7 +71,8 @@
             "columns":[
                 { "data": "first_name" },
                 { "data": "last_name" },
-                { "data": "action", orderable:false, searchable: false}
+                { "data": "action", orderable:false, searchable: false},
+                { "data":"checkbox", orderable:false, searchable:false}
             ]
         });
 
@@ -153,6 +155,33 @@
             else
             {
                 return false;
+            }
+        });
+
+        $(document).on('click', '#bulk_delete', function(){
+            var id = [];
+            if(confirm("Are you sure you want to Delete this data?"))
+            {
+                $('.student_checkbox:checked').each(function(){
+                    id.push($(this).val());
+                });
+                if(id.length > 0)
+                {
+                    $.ajax({
+                        url:"{{ route('ajaxdata.massremove')}}",
+                        method:"get",
+                        data:{id:id},
+                        success:function(data)
+                        {
+                            alert(data);
+                            $('#student_table').DataTable().ajax.reload();
+                        }
+                    });
+                }
+                else
+                {
+                    alert("Please select atleast one checkbox");
+                }
             }
         });
 
