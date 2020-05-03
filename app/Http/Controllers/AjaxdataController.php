@@ -20,7 +20,7 @@ class AjaxdataController extends Controller
         $students = Student::select('id', 'first_name', 'last_name');
         return Datatables::of($students)
             ->addColumn('action', function($student){
-                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$student->id.'"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                return '<a href="#" class="btn btn-xs btn-primary edit" id="'.$student->id.'"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="#" class="btn btn-xs btn-danger delete" id="'.$student->id.'"><i class="glyphicon glyphicon-remove"></i> Delete</a>';
             })
             ->make(true);
     }
@@ -78,5 +78,14 @@ class AjaxdataController extends Controller
             'last_name'     =>  $student->last_name
         );
         echo json_encode($output);
+    }
+
+    function removedata(Request $request)
+    {
+        $student = Student::find($request->input('id'));
+        if($student->delete())
+        {
+            echo 'Data Deleted';
+        }
     }
 }
