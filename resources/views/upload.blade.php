@@ -12,6 +12,15 @@
 <div class="container">
     <h3 align="center">File Uploading in Laravel</h3>
     <br />
+    @if(isset(Auth::user()->email))
+        <div class="alert alert-danger success-block">
+            <strong>Welcome {{ Auth::user()->name }}</strong>
+            <br />
+            <a href="{{ url('/main/logout') }}">Logout</a>
+        </div>
+    @else
+        <script>window.location = "/main";</script>
+    @endif
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             Upload Validation Error<br><br>
