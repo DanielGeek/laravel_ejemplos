@@ -34,5 +34,7 @@ Route::post('/email_available/check', 'EmailAvailable@check')->name('email_avail
 Route::get('/live_search', 'LiveSearch@index');
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 
+Route::get('/export_excel', 'ExportExcelController@index');
+Route::get('/export_excel/excel', 'ExportExcelController@excel')->name('export_excel.excel');
 
-
+Route::get('users/export/', 'ExportExcelController@export');
