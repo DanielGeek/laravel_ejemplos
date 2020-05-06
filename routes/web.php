@@ -49,3 +49,7 @@ Route::get('/laravel_google_chart', 'LaravelGoogleGraph@index');
 
 Route::get('/pagination', 'PaginationController@index');
 Route::get('pagination/fetch_data', 'PaginationController@fetch_data');
+
+Route::get('/ajax_upload', 'AjaxUploadController@index');
+Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
+
