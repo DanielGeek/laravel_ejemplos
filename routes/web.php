@@ -38,3 +38,7 @@ Route::get('/export_excel', 'ExportExcelController@index');
 Route::get('/export_excel/excel', 'ExportExcelController@excel')->name('export_excel.excel');
 
 Route::get('users/export/', 'ExportExcelController@export');
+
+Route::get('/autocomplete', 'AutocompleteController@index');
+Route::post('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
+
