@@ -31,5 +31,8 @@ Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicd
 Route::get('/email_available', 'EmailAvailable@index');
 Route::post('/email_available/check', 'EmailAvailable@check')->name('email_available.check');
 
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+
 
 

@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 05/05/2020 20:38:43
+ Date: 05/05/2020 22:00:25
 */
 
 SET NAMES utf8mb4;
@@ -79,6 +79,28 @@ CREATE TABLE `migrations`  (
 -- ----------------------------
 INSERT INTO `migrations` VALUES (1, '2014_10_12_000000_create_users_table', 1);
 INSERT INTO `migrations` VALUES (2, '2019_08_19_000000_create_failed_jobs_table', 1);
+
+-- ----------------------------
+-- Table structure for tbl_customer
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_customer`;
+CREATE TABLE `tbl_customer`  (
+  `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
+  `CustomerName` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
+  `Address` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL,
+  `City` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
+  `PostalCode` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
+  `Country` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`CustomerID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_spanish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_customer
+-- ----------------------------
+INSERT INTO `tbl_customer` VALUES (1, 'Daniel', 'Delicias', 'Puerto Varas', '5550000', 'Chile');
+INSERT INTO `tbl_customer` VALUES (2, 'Jessica', 'Delicias', 'Puerto Varas', '5550000', 'Chile');
+INSERT INTO `tbl_customer` VALUES (3, 'Ara', 'Concepcion', 'Santiago', '40000', 'Chile');
+INSERT INTO `tbl_customer` VALUES (4, 'Ruth', 'Delicias', 'Zulia', '10000', 'Venezuela');
 
 -- ----------------------------
 -- Table structure for tbl_login
