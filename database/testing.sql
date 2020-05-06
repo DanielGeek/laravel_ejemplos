@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 05/05/2020 20:09:36
+ Date: 05/05/2020 20:38:43
 */
 
 SET NAMES utf8mb4;
@@ -79,6 +79,27 @@ CREATE TABLE `migrations`  (
 -- ----------------------------
 INSERT INTO `migrations` VALUES (1, '2014_10_12_000000_create_users_table', 1);
 INSERT INTO `migrations` VALUES (2, '2019_08_19_000000_create_failed_jobs_table', 1);
+
+-- ----------------------------
+-- Table structure for tbl_login
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_login`;
+CREATE TABLE `tbl_login`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `last_name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `gender` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `password` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `address` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `mobile_no` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_login
+-- ----------------------------
+INSERT INTO `tbl_login` VALUES (1, 'Danie', 'Angel', 'male', 'dangel@gmail.com', 'password', '', '936292818');
 
 -- ----------------------------
 -- Table structure for users

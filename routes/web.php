@@ -27,3 +27,9 @@ Route::get('main/logout', 'MainController@logout');
 
 Route::get('/dynamic_dependent', 'DynamicDependent@index');
 Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicdependent.fetch');
+
+Route::get('/email_available', 'EmailAvailable@index');
+Route::post('/email_available/check', 'EmailAvailable@check')->name('email_available.check');
+
+
+
