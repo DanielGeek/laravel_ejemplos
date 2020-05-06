@@ -46,3 +46,6 @@ Route::get('/dynamic_pdf', 'DynamicPDFController@index');
 Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
 
 Route::get('/laravel_google_chart', 'LaravelGoogleGraph@index');
+
+Route::get('/pagination', 'PaginationController@index');
+Route::get('pagination/fetch_data', 'PaginationController@fetch_data');
