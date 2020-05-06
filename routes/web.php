@@ -42,3 +42,5 @@ Route::get('users/export/', 'ExportExcelController@export');
 Route::get('/autocomplete', 'AutocompleteController@index');
 Route::post('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
 
+Route::get('/dynamic_pdf', 'DynamicPDFController@index');
+Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
