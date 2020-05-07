@@ -53,3 +53,5 @@ Route::get('pagination/fetch_data', 'PaginationController@fetch_data');
 Route::get('/ajax_upload', 'AjaxUploadController@index');
 Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
 
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');
