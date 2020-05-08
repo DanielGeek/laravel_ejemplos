@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function traerBlog(){
+    public function index(){
         
         $blog = Blog::all();
 
