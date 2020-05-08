@@ -29,25 +29,38 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Title</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fas fa-times"></i></button>
-                </div>
+                
+                <button class="btn btn-primary float-right">Guardar cambios</button>
+              
               </div>
+
               <div class="card-body">
                 
                 @foreach ($blog as $element)
-                  {{ $element }}
+                  <!-- {{ $element }} -->
                 @endforeach
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- {{ $element->dominio }} -->
 
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                Footer
+                 <button class="btn btn-primary float-right">Guardar cambios</button>
               </div>
               <!-- /.card-footer-->
             </div>

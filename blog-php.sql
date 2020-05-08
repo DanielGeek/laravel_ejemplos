@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 07/05/2020 20:01:56
+ Date: 08/05/2020 16:53:06
 */
 
 SET NAMES utf8mb4;
@@ -172,11 +172,11 @@ DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dominio` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `servidor` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `titulo` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `descripcion` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `palabras_claves` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `portada` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `email` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `logo` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `icono` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `redes_sociales` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -189,7 +189,7 @@ CREATE TABLE `blog`  (
 -- ----------------------------
 -- Records of blog
 -- ----------------------------
-INSERT INTO `blog` VALUES (1, 'http://localhost/blog-php/', 'Blog del viajero', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae mollitia et animi beatae voluptates, sint exercitationem magni consequuntur ipsa, recusandae. Cumque, maxime, sequi. Id at quo, voluptatum eum voluptas. Dolores.', '[\"lorem\", \"ipsum\", \"dolor\", \"sit\", \"amet\"]', 'vistas/img/articulo01.png', 'contacto@blogdelviajero.com', 'vistas/img/logotipo-negativo.png', 'vistas/img/icono.jpg', '[\r\n{\"red\":\"facebook\",\"url\":\"https://www.facebook.com\", \"icono\":\"fab fa-facebook-f\", \"background\":\"#1475E0\"},\r\n{\"red\":\"instagram\",\"url\":\"https://www.instagram.com\", \"icono\":\"fab fa-instagram\", \"background\":\"#B18768\"},\r\n{\"red\":\"twitter\",\"url\":\"https://www.twitter.com\", \"icono\":\"fab fa-twitter\", \"background\":\"#00A6FF\"},\r\n{\"red\":\"youtube\",\"url\":\"https://www.youtube.com\", \"icono\":\"fab fa-youtube\", \"background\":\"#F95F62\"},\r\n{\"red\":\"snapchat\",\"url\":\"https://www.snapchat.com\", \"icono\":\"fab fa-snapchat-ghost\", \"background\":\"#FF9052\"}\r\n]', '<div class=\"sobreMi\">\r\n					\r\n					<h4><a href=\"http://localhost/blog-php/sobre-mi\">Sobre Mi</a></h4>\r\n\r\n					<img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-1\">\r\n\r\n					<p class=\"small\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.</p>\r\n\r\n				</div>', '<div> <h1>Sobre Mi</h1><img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-2\" width=\"100%\">  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  </div>', '2019-11-07 22:12:39');
+INSERT INTO `blog` VALUES (1, 'http://localhost/blog-php/', 'http://localhost/blog-php/cms/public/', 'Blog del viajero', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae mollitia et animi beatae voluptates, sint exercitationem magni consequuntur ipsa, recusandae. Cumque, maxime, sequi. Id at quo, voluptatum eum voluptas. Dolores.', '[\"lorem\", \"ipsum\", \"dolor\", \"sit\", \"amet\"]', 'vistas/img/articulo01.png', 'vistas/img/logotipo-negativo.png', 'vistas/img/icono.jpg', '[\r\n{\"red\":\"facebook\",\"url\":\"https://www.facebook.com\", \"icono\":\"fab fa-facebook-f\", \"background\":\"#1475E0\"},\r\n{\"red\":\"instagram\",\"url\":\"https://www.instagram.com\", \"icono\":\"fab fa-instagram\", \"background\":\"#B18768\"},\r\n{\"red\":\"twitter\",\"url\":\"https://www.twitter.com\", \"icono\":\"fab fa-twitter\", \"background\":\"#00A6FF\"},\r\n{\"red\":\"youtube\",\"url\":\"https://www.youtube.com\", \"icono\":\"fab fa-youtube\", \"background\":\"#F95F62\"},\r\n{\"red\":\"snapchat\",\"url\":\"https://www.snapchat.com\", \"icono\":\"fab fa-snapchat-ghost\", \"background\":\"#FF9052\"}\r\n]', '<div class=\"sobreMi\">\r\n					\r\n					<h4><a href=\"http://localhost/blog-php/sobre-mi\">Sobre Mi</a></h4>\r\n\r\n					<img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-1\">\r\n\r\n					<p class=\"small\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.</p>\r\n\r\n				</div>', '<div> <h1>Sobre Mi</h1><img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-2\" width=\"100%\">  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  </div>', '2020-05-08 16:40:44');
 
 -- ----------------------------
 -- Table structure for categorias
