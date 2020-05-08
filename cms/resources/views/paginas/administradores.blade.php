@@ -39,7 +39,9 @@
                 </div>
               </div>
               <div class="card-body">
-                Start creating your amazing application!
+              @foreach ($administradores as $element)
+                  {{ $element }}
+                @endforeach
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
