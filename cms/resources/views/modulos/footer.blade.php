@@ -1,7 +1,11 @@
 <footer class="main-footer">
-    <strong>Copyright © 
-      @php
-        echo date("Y");
-      @endphp
-      <a href="{{ substr(url('/'),0, -11) }}">CMS con Laravel</a>.</strong> Todos los derechos reservados.
+  <div class="float-right d-none d-sm-block">
+    Todos los derechos reservados.
+  </div>
+
+  <strong>Copyright © 
+    @php
+      echo date("Y");
+    @endphp
+    <a href="{{ substr(url('/'),0, -11) }}">CMS con Laravel</a>.</strong> 
   </footer>
