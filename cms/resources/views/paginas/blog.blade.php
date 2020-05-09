@@ -156,21 +156,28 @@
                         </div>
                         <!-- fin del row -->
                         <div class="row">
-                          <div class="col-lg-6">
+                          @php
+                          $redes = json_decode($element->redes_sociales, true);
+                          
+                          foreach($redes as $key => $value) {
+                            echo '<div class="col-lg-12">
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
-                                <div class="input-group-text text-white" style="background: #1475E0">
-                                  <i class="fab fa-facebook-f"></i>
+                                <div class="input-group-text text-white" style="background:'.$value["background"].'">
+                                  <i class="'.$value["background"].'"></i>
                                 </div>
                               </div>
-                              <input type="text" class="form-control" value="https://www.facebook.com">
+                              <input type="text" class="form-control" value="'.$value["url"].'">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text" style="cursor:pointer">
                                    <span class="bg-danger px-2 rounded-circle">&times;</span>
                                   </div>
                                 </div>
                             </div>
-                          </div>
+                          </div>';
+                          }
+                          @endphp
+                          
                         </div>
                       </div>
                     </div>
@@ -178,12 +185,66 @@
                   <div class="col-lg-5">
                     <div class="card">
                       <div class="card-body">
-                        
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <!-- cambiar logo -->
+                            <div class="form-group my-2 text-center">
+                              <div class="btn btn-default btn-file mb-3">
+                                <i class="fas fa-paperclip"></i>Adjuntar Imagen de Logo
+                                <input type="file" name="logo">
+                              </div>
+                              <img src="{{url('/')}}/{{$element->logo}}" class="img-fluid py-2 bg-secondary">
+
+                              <p class="help-block small met-3">Dimensiones: 700px * 200px | Peso Max. 2MB | Formato: JPG o PNG</p>
+                            </div>
+                            <hr class="pb-2">
+                            <!-- cambiar portada -->
+                            <div class="form-group my-2 text-center">
+                              <div class="btn btn-default btn-file mb-3">
+                                <i class="fas fa-paperclip"></i>Adjuntar Imagen de portada
+                                <input type="file" name="portada">
+                              </div>
+                              <img src="{{url('/')}}/{{$element->portada}}" class="img-fluid py-2 bg-secondary">
+
+                              <p class="help-block small met-3">Dimensiones: 700px * 420px | Peso Max. 2MB | Formato: JPG o PNG</p>
+                            </div>
+
+                            <hr class="pb-2">
+                            <!-- cambiar icono -->
+                            <div class="form-group my-2 text-center">
+                              <div class="btn btn-default btn-file mb-3">
+                                <i class="fas fa-paperclip"></i>Adjuntar Imagen de Icono
+                                <input type="file" name="icono">
+                              </div>
+                              <br>
+                              <img src="{{url('/')}}/{{$element->icono}}" class="img-fluid py-2 rounded-circle">
+
+                              <p class="help-block small met-3">Dimensiones: 150px * 150px | Peso Max. 2MB | Formato: JPG o PNG</p>
+                            </div>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <label for="">Sobre mi <span class="small">(Intro)</span></label>
+                        <textarea class="form-control" name="sobre_mi" id="30" rows="10">{{$element->sobre_mi}}</textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                      <label for="">Sobre mi completo <span class="small">(Completo)</span></label>
+                        <textarea class="form-control" name="sobre_mi_completo" id="30" rows="10">{{$element->sobre_mi_completo}}</textarea>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-                <!-- {{ $element->dominio }} -->
 
               </div>
               <!-- /.card-body -->
