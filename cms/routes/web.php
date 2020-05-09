@@ -39,6 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route:resource
 // php artisan route:list
 Route::resource('/', 'BlogController');
+Route::resource('/blog', 'BlogController');
 Route::resource('/administradores', 'AdministradoresController');
 Route::resource('/anuncios', 'AnunciosController');
 Route::resource('/articulos', 'ArticulosController');

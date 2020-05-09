@@ -26,19 +26,25 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+
+            @foreach ($blog as $element)
+              
+            @endforeach
+
+            <form action="{{url('/')}}/blog/{{$element->id}}" method="post">
+              @method('PUT')
+
+              @csrf
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
                 
-                <button class="btn btn-primary float-right">Guardar cambios</button>
+                <button type="submit" class="btn btn-primary float-right">Guardar cambios</button>
               
               </div>
 
               <div class="card-body">
                 
-                @foreach ($blog as $element)
-                  <!-- {{ $element }} -->
-                @endforeach
                 <div class="row">
                   <div class="col-lg-7">
                     <div class="card">
@@ -249,11 +255,12 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                 <button class="btn btn-primary float-right">Guardar cambios</button>
+                 <button type="submit" class="btn btn-primary float-right">Guardar cambios</button>
               </div>
               <!-- /.card-footer-->
             </div>
             <!-- /.card -->
+            </form>
           </div>
         </div>
       </div>
