@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/OverlayScrollbars.min.css">
     <!-- tagsinput -->
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/tagsinput.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ url('/') }}/css/plugins/summernote.css">
     <!-- admin lte -->
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -24,6 +26,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{{ url('/') }}/js/plugins/overlayScrollbars.min.js"></script>
     <script src="{{ url('/') }}/js/plugins/tagsinput.js"></script>
+    <script src="{{ url('/') }}/js/plugins/summernote.js"></script>
     <script src="{{ url('/') }}/js/plugins/adminlte.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -33,7 +36,7 @@
         @include('modulos.sidebar')
         @yield('content')
         @include('modulos.footer')
-        <p>Este es el home del back end</p>
     </div>
+    <script src="{{url('/')}}/js/codigo.js"></script>
 </body>
 </html>

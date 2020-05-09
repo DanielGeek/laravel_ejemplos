@@ -231,7 +231,7 @@
                     <div class="card">
                       <div class="card-body">
                         <label for="">Sobre mi <span class="small">(Intro)</span></label>
-                        <textarea class="form-control" name="sobre_mi" id="30" rows="10">{{$element->sobre_mi}}</textarea>
+                        <textarea class="form-control summernote" name="sobre_mi" id="30" rows="10">{{$element->sobre_mi}}</textarea>
                       </div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@
                     <div class="card">
                       <div class="card-body">
                       <label for="">Sobre mi completo <span class="small">(Completo)</span></label>
-                        <textarea class="form-control" name="sobre_mi_completo" id="30" rows="10">{{$element->sobre_mi_completo}}</textarea>
+                        <textarea class="form-control summernote" name="sobre_mi_completo" id="30" rows="10">{{$element->sobre_mi_completo}}</textarea>
                       </div>
                     </div>
                   </div>
