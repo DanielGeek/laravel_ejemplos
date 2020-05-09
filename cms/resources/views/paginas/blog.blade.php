@@ -161,8 +161,11 @@
 
                         </div>
                         <!-- fin del row -->
-                        <div class="row">
+                        <div class="row listadoRed">
                           @php
+
+                          echo "<input type='hidden' name='redes_sociales' value='".$element->redes_sociales."' id='listaRed'>";
+
                           $redes = json_decode($element->redes_sociales, true);
                           
                           foreach($redes as $key => $value) {
@@ -170,7 +173,7 @@
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <div class="input-group-text text-white" style="background:'.$value["background"].'">
-                                  <i class="'.$value["background"].'"></i>
+                                  <i class="'.$value["icono"].'"></i>
                                 </div>
                               </div>
                               <input type="text" class="form-control" value="'.$value["url"].'">
