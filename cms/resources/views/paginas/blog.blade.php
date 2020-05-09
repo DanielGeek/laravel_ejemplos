@@ -268,4 +268,46 @@
     <!-- /.content -->
   </div>
 
+  @if(Session::has("no-validacion"))
+
+    <script>
+      notie.alert({
+      
+      type: 2,
+      text: '¡Hay campos no válidos en el formulario!',
+      time: 7
+
+    })
+
+    </script>
+  @endif
+
+  @if(Session::has("error"))
+  
+    <script>
+      notie.alert({
+      
+      type: 3,
+      text: '¡Error en el gestor del blog!',
+      time: 7
+
+    })
+
+    </script>
+  @endif
+
+  @if(Session::has("ok-editar"))
+  
+    <script>
+      notie.alert({
+      
+      type: 1,
+      text: '¡El blog ha sido actualizado correctamente!',
+      time: 7
+
+    })
+
+    </script>
+  @endif
+
   @endsection

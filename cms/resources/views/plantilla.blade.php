@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/tagsinput.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/summernote.css">
+    <!-- notie css -->
+    <link rel="stylesheet" href="{{ url('/') }}/css/plugins/notie.css">
     <!-- admin lte -->
     <link rel="stylesheet" href="{{ url('/') }}/css/plugins/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -27,6 +29,7 @@
     <script src="{{ url('/') }}/js/plugins/overlayScrollbars.min.js"></script>
     <script src="{{ url('/') }}/js/plugins/tagsinput.js"></script>
     <script src="{{ url('/') }}/js/plugins/summernote.js"></script>
+    <script src="{{ url('/') }}/js/plugins/notie.js"></script>
     <script src="{{ url('/') }}/js/plugins/adminlte.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
