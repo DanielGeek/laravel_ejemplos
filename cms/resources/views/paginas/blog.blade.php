@@ -178,8 +178,8 @@
                               </div>
                               <input type="text" class="form-control" value="'.$value["url"].'">
                                 <div class="input-group-prepend">
-                                  <div class="input-group-text" style="cursor:pointer">
-                                   <span class="bg-danger px-2 rounded-circle">&times;</span>
+                                  <div class="input-group-text" style="cursor:pointer;">
+                                   <span class="bg-danger px-2 rounded-circle eliminarRed" red="'.$value["icono"].'" url="'.$value["url"].'">&times;</span>
                                   </div>
                                 </div>
                             </div>
