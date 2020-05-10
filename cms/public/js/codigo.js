@@ -50,4 +50,41 @@ $(document).on("click", ".eliminarRed", function(){
     }
 })
 
+$("input[type='file']").change(function(){
+
+    var imagen = this.files[0];
+    var tipo = $(this).attr("name");
+    console.log("imagen", imagen);
+
+    if(imagen["type"] != "image/jpeg" && imagen["type"] != "imagen/png"){
+        $("input[type='file']").val("");
+
+        notie.alert({
+            type: 3,
+            text: '¡La imagen debe estar en formato JPG o PNG!',
+            time: 7
+        })
+    }else if(imagen["size"] > 2000000){
+        $("input[type='file']").val("");
+
+        notie.alert({
+            type: 3,
+            text: '¡La imagen no debe pasar mas de 2MB!',
+            time: 7
+        })
+    }else{
+        
+        var datosImagen = new FileReader;
+        datosImagen.readAsDataURL(imagen);
+
+        $(datosImagen).on("load", function(event){
+
+            var rutaImagen = event.target.result;
+
+            $(".previsualizarImg_"+tipo).attr("src", rutaImagen);
+
+        })
+    }
+})
+
 $(".summernote").summernote();

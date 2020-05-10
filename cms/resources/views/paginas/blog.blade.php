@@ -202,7 +202,8 @@
                                 <i class="fas fa-paperclip"></i>Adjuntar Imagen de Logo
                                 <input type="file" name="logo">
                               </div>
-                              <img src="{{url('/')}}/{{$element->logo}}" class="img-fluid py-2 bg-secondary">
+                              <br>
+                              <img src="{{url('/')}}/{{$element->logo}}" class="img-fluid py-2 bg-secondary previsualizarImg_logo">
 
                               <p class="help-block small met-3">Dimensiones: 700px * 200px | Peso Max. 2MB | Formato: JPG o PNG</p>
                             </div>
@@ -213,7 +214,7 @@
                                 <i class="fas fa-paperclip"></i>Adjuntar Imagen de portada
                                 <input type="file" name="portada">
                               </div>
-                              <img src="{{url('/')}}/{{$element->portada}}" class="img-fluid py-2 bg-secondary">
+                              <img src="{{url('/')}}/{{$element->portada}}" class="img-fluid py-2 previsualizarImg_portada">
 
                               <p class="help-block small met-3">Dimensiones: 700px * 420px | Peso Max. 2MB | Formato: JPG o PNG</p>
                             </div>
@@ -226,7 +227,7 @@
                                 <input type="file" name="icono">
                               </div>
                               <br>
-                              <img src="{{url('/')}}/{{$element->icono}}" class="img-fluid py-2 rounded-circle">
+                              <img src="{{url('/')}}/{{$element->icono}}" class="img-fluid py-2 rounded-circle previsualizarImg_icono">
 
                               <p class="help-block small met-3">Dimensiones: 150px * 150px | Peso Max. 2MB | Formato: JPG o PNG</p>
                             </div>
