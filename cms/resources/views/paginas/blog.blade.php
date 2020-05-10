@@ -31,7 +31,7 @@
               
             @endforeach
 
-            <form action="{{url('/')}}/blog/{{$element->id}}" method="post">
+            <form action="{{url('/')}}/blog/{{$element->id}}" method="post" enctype="multipart/form-data">
               @method('PUT')
 
               @csrf
@@ -201,6 +201,9 @@
                               <div class="btn btn-default btn-file mb-3">
                                 <i class="fas fa-paperclip"></i>Adjuntar Imagen de Logo
                                 <input type="file" name="logo">
+
+                                <input type="hidden" name="logo_actual" value="{{$element->logo}}" required>
+
                               </div>
                               <br>
                               <img src="{{url('/')}}/{{$element->logo}}" class="img-fluid py-2 bg-secondary previsualizarImg_logo">
@@ -213,6 +216,7 @@
                               <div class="btn btn-default btn-file mb-3">
                                 <i class="fas fa-paperclip"></i>Adjuntar Imagen de portada
                                 <input type="file" name="portada">
+                                <input type="hidden" name="portada_actual" value="{{$element->portada}}" required>
                               </div>
                               <img src="{{url('/')}}/{{$element->portada}}" class="img-fluid py-2 previsualizarImg_portada">
 
@@ -225,6 +229,7 @@
                               <div class="btn btn-default btn-file mb-3">
                                 <i class="fas fa-paperclip"></i>Adjuntar Imagen de Icono
                                 <input type="file" name="icono">
+                                <input type="hidden" name="icono_actual" value="{{$element->icono}}" required>
                               </div>
                               <br>
                               <img src="{{url('/')}}/{{$element->icono}}" class="img-fluid py-2 rounded-circle previsualizarImg_icono">
@@ -279,6 +284,20 @@
       
       type: 2,
       text: '¡Hay campos no válidos en el formulario!',
+      time: 7
+
+    })
+
+    </script>
+  @endif
+
+  @if(Session::has("no-validacion-imagen"))
+
+    <script>
+      notie.alert({
+      
+      type: 2,
+      text: '¡Alguna de las imágenes no tiene el formato correcto!',
       time: 7
 
     })
