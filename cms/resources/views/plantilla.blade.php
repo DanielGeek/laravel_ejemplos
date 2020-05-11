@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>cms con laravel 6</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{{$blog[0]["icono"]}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.min.css">
     <!-- bootstrap 4 -->

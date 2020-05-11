@@ -108,7 +108,7 @@ class BlogController extends Controller
                         
                         $origen = imagecreatefromjpeg($logo["logo_temporal"]);
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagejpeg($destino, $rutaLogo);
 
                     }
@@ -119,7 +119,7 @@ class BlogController extends Controller
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
                         imagealphablending($destino, FALSE);
                         imagesavealpha($destino, TRUE);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagepng($destino, $rutaLogo);
                         
                     }
@@ -152,7 +152,7 @@ class BlogController extends Controller
                         
                         $origen = imagecreatefromjpeg($portada["portada_temporal"]);
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagejpeg($destino, $rutaPortada);
 
                     }
@@ -163,7 +163,7 @@ class BlogController extends Controller
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
                         imagealphablending($destino, FALSE);
                         imagesavealpha($destino, TRUE);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagepng($destino, $rutaPortada);
                         
                     }
@@ -193,7 +193,7 @@ class BlogController extends Controller
                         
                         $origen = imagecreatefromjpeg($icono["icono_temporal"]);
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagejpeg($destino, $rutaIcono);
 
                     }
@@ -204,7 +204,7 @@ class BlogController extends Controller
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
                         imagealphablending($destino, FALSE);
                         imagesavealpha($destino, TRUE);
-                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagecopyresampled($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                         imagepng($destino, $rutaIcono);
                         
                     }
