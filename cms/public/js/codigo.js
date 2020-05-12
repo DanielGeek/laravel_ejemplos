@@ -1,3 +1,8 @@
+// capturando la ruta de mi cms
+
+var ruta = $("#ruta").val();
+
+
 // agregar red social
 $(document).on("click", ".agregarRed", function(){
     
@@ -87,4 +92,38 @@ $("input[type='file']").change(function(){
     }
 })
 
-$(".summernote").summernote();
+$(".summernote").summernote({
+    height: 300,
+    callbacks: {
+        
+        onImageUpload: function(files){
+            for(var i = 0; i < files.length; i++){
+                upload(files[i]);
+            }
+        }
+    }
+});
+
+// subir imagen al servidor
+function upload(file){
+
+    var datos = new FormData();
+    datos.append('file', file, file.name);
+    datos.append("ruta", ruta);
+
+    $.ajax({
+        url: ruta+"/ajax/upload.php",
+        method: "POST",
+        data: datos,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(respuesta) {
+            $('.summernote').summernote("insertImage", respuesta);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error(textStatus + " " + errorThrown);
+        }
+    })
+
+}
