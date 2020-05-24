@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 10/05/2020 21:35:07
+ Date: 23/05/2020 21:19:35
 */
 
 SET NAMES utf8mb4;
@@ -190,7 +190,7 @@ CREATE TABLE `blog`  (
 -- ----------------------------
 -- Records of blog
 -- ----------------------------
-INSERT INTO `blog` VALUES (1, 'http://localhost/blog-php/', 'http://localhost/blog-php/cms/public/', 'Blog del viajero', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae mollitia et animi beatae voluptates, sint exercitationem magni consequuntur ipsa, recusandae. Cumque, maxime, sequi. Id at quo, voluptatum eum voluptas. Dolores.', '[\"lorem\",\"ipsum\",\"dolor\",\"sit\",\"amet\"]', 'img/blog/738.jpeg', 'img/blog/374.png', 'img/blog/514.jpeg', '[{\"url\":\"https://www.facebook.com\",\"icono\":\"fab fa-facebook-f\",\"background\":\"#1475E0\"},{\"url\":\"https://www.instagram.com\",\"icono\":\"fab fa-instagram\",\"background\":\"#B18768\"},{\"url\":\"https://www.twitter.com\",\"icono\":\"fab fa-twitter\",\"background\":\"#00A6FF\"},{\"url\":\"https://www.youtube.com\",\"icono\":\"fab fa-youtube\",\"background\":\"#F95F62\"},{\"url\":\"https://www.snapchat.com\",\"icono\":\"fab fa-snapchat-ghost\",\"background\":\"#FF9052\"}]', '<div class=\"sobreMi\">\r\n					\r\n					<h4><a href=\"http://localhost/blog-php/sobre-mi\">Sobre Mi</a></h4>\r\n\r\n					<img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-1\">\r\n\r\n					<p class=\"small\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.</p>\r\n\r\n				</div>', '<div> <h1>Sobre Mi</h1><img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-2\" width=\"100%\">  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  </div>', '2020-05-10 21:25:59', '2020-05-11 01:25:59');
+INSERT INTO `blog` VALUES (1, 'http://localhost/blog-php/', 'http://localhost/blog-php/cms/public/', 'Blog del viajero', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae mollitia et animi beatae voluptates, sint exercitationem magni consequuntur ipsa, recusandae. Cumque, maxime, sequi. Id at quo, voluptatum eum voluptas. Dolores.', '[\"lorem\",\"ipsum\",\"dolor\",\"sit\",\"amet\"]', 'img/blog/738.jpeg', 'img/blog/374.png', 'img/blog/514.jpeg', '[{\"url\":\"https://www.facebook.com\",\"icono\":\"fab fa-facebook-f\",\"background\":\"#1475E0\"},{\"url\":\"https://www.instagram.com\",\"icono\":\"fab fa-instagram\",\"background\":\"#B18768\"},{\"url\":\"https://www.twitter.com\",\"icono\":\"fab fa-twitter\",\"background\":\"#00A6FF\"},{\"url\":\"https://www.youtube.com\",\"icono\":\"fab fa-youtube\",\"background\":\"#F95F62\"},{\"url\":\"https://www.snapchat.com\",\"icono\":\"fab fa-snapchat-ghost\",\"background\":\"#FF9052\"}]', '<div class=\"sobreMi\">\r\n					\r\n					<h4><a href=\"http://localhost/blog-php/sobre-mi\">H</a>ola 2</h4>\r\n\r\n				<img style=\"width: 529.6px;\" src=\"http://127.0.0.1:8000/img/temp/blog/3def184ad8f4755ff269862ea77393dd.PNG\"><br></div>', '<div> <h1>hola 3</h1>  </div>', '2020-05-22 23:03:17', '2020-05-23 03:03:17');
 
 -- ----------------------------
 -- Table structure for categorias
@@ -296,6 +296,8 @@ CREATE TABLE `users`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `rol` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `email_verified_at` timestamp(0) NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -308,7 +310,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Julia Roberta', 'julia@hotmail.com', NULL, '$2y$10$LarYiNk4pD/p.tgcTJbsQOE0I9cQixFLHwhWDMAs..BxJEBclWtWe', 'lSduDXFhzDmEabsIFjaHB9gPfNjQRzu0HECNHwDdhIVvWisw92oL9Ds0YanR', '2019-11-13 23:34:44', '2019-11-13 23:34:44');
-INSERT INTO `users` VALUES (3, 'Daniel', 'dangel@gmail.com', NULL, '$2y$10$t.gVxlJYqKD.hnD1UUOWFu/8wNjCRzCT.zUvl6HBlqI9ylONsWAju', 'gW57ozFZ0opVRxZ0gxS6GPtqIETa18pJ1TEGeChjqD3N4CPuCg0lpmkcBL98', '2020-05-07 21:05:17', '2020-05-07 21:05:17');
+INSERT INTO `users` VALUES (1, 'Julia Roberta', 'julia@hotmail.com', NULL, NULL, NULL, '$2y$10$LarYiNk4pD/p.tgcTJbsQOE0I9cQixFLHwhWDMAs..BxJEBclWtWe', 'lSduDXFhzDmEabsIFjaHB9gPfNjQRzu0HECNHwDdhIVvWisw92oL9Ds0YanR', '2019-11-13 23:34:44', '2019-11-13 23:34:44');
+INSERT INTO `users` VALUES (3, 'Daniel', 'dangel@gmail.com', 'img/administradores/admin.png', 'administrador', NULL, '$2y$10$t.gVxlJYqKD.hnD1UUOWFu/8wNjCRzCT.zUvl6HBlqI9ylONsWAju', 'gW57ozFZ0opVRxZ0gxS6GPtqIETa18pJ1TEGeChjqD3N4CPuCg0lpmkcBL98', '2020-05-07 21:05:17', '2020-05-07 21:05:17');
 
 SET FOREIGN_KEY_CHECKS = 1;
