@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 23/05/2020 21:19:35
+ Date: 24/05/2020 19:12:46
 */
 
 SET NAMES utf8mb4;
@@ -305,12 +305,13 @@ CREATE TABLE `users`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'Julia Roberta', 'julia@hotmail.com', NULL, NULL, NULL, '$2y$10$LarYiNk4pD/p.tgcTJbsQOE0I9cQixFLHwhWDMAs..BxJEBclWtWe', 'lSduDXFhzDmEabsIFjaHB9gPfNjQRzu0HECNHwDdhIVvWisw92oL9Ds0YanR', '2019-11-13 23:34:44', '2019-11-13 23:34:44');
 INSERT INTO `users` VALUES (3, 'Daniel', 'dangel@gmail.com', 'img/administradores/admin.png', 'administrador', NULL, '$2y$10$t.gVxlJYqKD.hnD1UUOWFu/8wNjCRzCT.zUvl6HBlqI9ylONsWAju', 'gW57ozFZ0opVRxZ0gxS6GPtqIETa18pJ1TEGeChjqD3N4CPuCg0lpmkcBL98', '2020-05-07 21:05:17', '2020-05-07 21:05:17');
+INSERT INTO `users` VALUES (4, 'daniel', 'daniel@gmail.com', NULL, NULL, NULL, '$2y$10$WIryLKGA1AMM1vvLeuiiS.Bh7fAvaz7B9lNtn.eYORgBJclu9VOc6', NULL, '2020-05-24 23:09:22', '2020-05-24 23:09:22');
 
 SET FOREIGN_KEY_CHECKS = 1;
