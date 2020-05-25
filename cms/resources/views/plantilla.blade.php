@@ -32,6 +32,7 @@
     <script src="{{ url('/') }}/js/plugins/tagsinput.js"></script>
     <script src="{{ url('/') }}/js/plugins/summernote.js"></script>
     <script src="{{ url('/') }}/js/plugins/notie.js"></script>
+    <script src="{{ url('/') }}/js/plugins/sweetalert.js"></script>
     <script src="{{ url('/') }}/js/plugins/adminlte.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

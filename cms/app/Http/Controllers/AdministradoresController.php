@@ -147,8 +147,9 @@ class AdministradoresController extends Controller
             unlink($validar[0]["foto"]);
             $administrador = Administradores::where("id", $validar[0]["id"])->delete();
 
-            return redirect("/administradores")->with("ok-eliminar", "");
-            
+            // return redirect("/administradores")->with("ok-eliminar", "");
+            return "ok";
+
         }else{
 
             return redirect("/administradores")->with("no-borrar", "");

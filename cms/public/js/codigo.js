@@ -1,5 +1,7 @@
 // capturando la ruta de mi cms
 
+// import { swal } from "./plugins/sweetalert";
+
 var ruta = $("#ruta").val();
 
 
@@ -162,3 +164,61 @@ function upload_smc(file){
     })
 
 }
+
+// preguntar antes de eliminar registro user
+$(document).on("click", ".eliminarRegistro", function(){
+
+    var action = $(this).attr("action");
+    var method = $(this).attr("method");
+    var pagina = $(this).attr("pagina");
+    var token = $(this).children("[name='_token']").attr("value");
+
+    Swal.fire({
+        title: 'Está seguro de eliminar este registro?',
+        text: 'Si no lo está puede cancelar la acción!',
+        // type: 'Warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, eliminar registro!'
+    }).then(function(result){
+
+        if(result.value){
+            var datos = new FormData();
+
+            //parametros para que funcione el enrutamiento laravel
+            datos.append("_method", method);
+            datos.append("_token", token);
+
+            $.ajax({
+                url:action,
+                method: "POST",
+                data: datos,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(respuesta){
+                    if(respuesta == "ok"){
+                        Swal.fire({
+                            // type:"success",
+                            title: "El registro ha sido eliminado!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar"
+                          }).then(function(result){
+                              if(result.value){
+                                  'entro....'
+                                  return;
+                                  window.location = ruta+'/'+pagina;
+                              }
+                          })
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrow) {
+                    console.error(textStatus + " " + errorThrow);
+                }
+            })
+        }
+    })
+
+})
