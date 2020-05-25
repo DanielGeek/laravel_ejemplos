@@ -203,7 +203,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <form method="POST" action="{{ route('register') }}">
+      <form method="POST" action="{{ url('/') }}/administradores/{{$value["id"]}}" enctype="multipart/form-data">
+              
+        @method('PUT')
         @csrf
         <div class="modal-header bg-info">
 
@@ -250,7 +252,7 @@
               <i class="fas fa-key"></i>
             </div>
 
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña mínimo de 8 caracteres">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Contraseña mínimo de 8 caracteres">
 
             @error('password')
             <span class="invalid-feedback" role="alert">
@@ -332,12 +334,46 @@
 <script>
   $("#editarAdministrador").modal();
 </script>
-@else
-  {{$status}}
+
+  @else
+    {{$status}}
+
+  @endif
 
 @endif
 
-@endif
+@if(Session::has("no-validacion"))
 
+    <script>
+      notie.alert({type: 2, text: '¡Hay campos no válidos en el formulario!', time: 10 })
+    </script>
+
+  @endif
+
+  @if(Session::has("error"))
+
+    <script>
+      notie.alert({
+      
+      type: 3,
+      text: '¡Error en el gestor de administradores!',
+      time: 10
+
+    })
+    </script>
+  @endif
+
+  @if(Session::has("ok-editar"))
+  
+    <script>
+      notie.alert({
+      
+      type: 1,
+      text: '¡El administrador ha sido actualizado correctamente!',
+      time: 10
+
+    })
+    </script>
+  @endif
 
 @endsection
