@@ -96,14 +96,23 @@ class AdministradoresController extends Controller
 
             }else{
 
-                if($foto["foto"] != "" && $datos["imagen_actual"] != "img/administradores/admin.png")
+                if($foto["foto"] != "")
                 {
-                    unlink($datos["imagen_actual"]);
+                    if(!empty($datos["imagen_actual"])){
+
+                        if($datos["imagen_actual"] != "img/administradores/admin.png") {
+
+                            unlink($datos['imagen_actual']);
+
+                        }
+                    }
+
                     $aleatorio = mt_rand(100, 999);
 
-                    $ruta = "imag/administradores".$aleatorio.".".$foto["foto"]->guessExtension();
+                    $ruta = "img/administradores".$aleatorio.".".$foto["foto"]->guessExtension();
 
                     move_uploaded_file($foto["foto"], $ruta);
+
                 }else{
 
                     $ruta = $datos["imagen_actual"];
@@ -127,5 +136,23 @@ class AdministradoresController extends Controller
 
         }
 
+    }
+
+    // Eliminar un registro
+    public function destroy($id, Request $request){
+        
+        $validar = Administradores::where("id", $id)->get();
+        
+        if(!empty($validar) && $id != 1){
+            unlink($validar[0]["foto"]);
+            $administrador = Administradores::where("id", $validar[0]["id"])->delete();
+
+            return redirect("/administradores")->with("ok-eliminar", "");
+            
+        }else{
+
+            return redirect("/administradores")->with("no-borrar", "");
+
+        }
     }
 }
