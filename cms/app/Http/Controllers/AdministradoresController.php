@@ -144,7 +144,19 @@ class AdministradoresController extends Controller
         $validar = Administradores::where("id", $id)->get();
         
         if(!empty($validar) && $id != 1){
-            unlink($validar[0]["foto"]);
+            
+            if($validar[0]["foto"] != "")
+            {
+                if(!empty($validar[0]["foto"])){
+
+                    if($validar[0]["foto"] != "img/administradores/admin.png") {
+
+                        unlink($validar[0]["foto"]);
+
+                    }
+                }
+
+            }
             $administrador = Administradores::where("id", $validar[0]["id"])->delete();
 
             // return redirect("/administradores")->with("ok-eliminar", "");

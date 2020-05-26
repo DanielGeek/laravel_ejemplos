@@ -173,10 +173,10 @@ $(document).on("click", ".eliminarRegistro", function(){
     var pagina = $(this).attr("pagina");
     var token = $(this).children("[name='_token']").attr("value");
 
-    Swal.fire({
+    swal({
         title: 'Está seguro de eliminar este registro?',
         text: 'Si no lo está puede cancelar la acción!',
-        // type: 'Warning',
+        type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -200,15 +200,13 @@ $(document).on("click", ".eliminarRegistro", function(){
                 processData: false,
                 success:function(respuesta){
                     if(respuesta == "ok"){
-                        Swal.fire({
-                            // type:"success",
+                        swal({
+                            type:"success",
                             title: "El registro ha sido eliminado!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                           }).then(function(result){
                               if(result.value){
-                                  'entro....'
-                                  return;
                                   window.location = ruta+'/'+pagina;
                               }
                           })
