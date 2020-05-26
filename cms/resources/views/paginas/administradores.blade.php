@@ -47,7 +47,7 @@
                 </thead>
 
                 <tbody>
-                  @foreach ($administradores as $key => $value)
+                  <!-- @foreach ($administradores as $key => $value)
                   <tr>
                     <td>{{($key+1)}}</td>
                     <td>{{($value["name"])}}</td>
@@ -77,7 +77,7 @@
                           <button class="btn btn-danger btn-sm eliminarRegistro" action="{{url('/')}}/administradores/{{$value["id"]}}" method="DELETE" pagina="administradores">
                             @csrf
                             <i class="fas fa-trash-alt"></i>
-                          </button>
+                          </button> -->
                         
 
                         <!-- <form method="post" action="{{url('/')}}/administradores/{{$value["id"]}}">
@@ -88,11 +88,11 @@
                             <i class="fas fa-trash-alt"></i>
                           </button>
                         </form> -->
-
+<!-- 
                       </div>
                     </td>
                   </tr>
-                  @endforeach
+                  @endforeach -->
                 </tbody>
 
               </table>

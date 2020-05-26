@@ -14,13 +14,44 @@ use Illuminate\Support\Facades\Hash;
 class AdministradoresController extends Controller
 {
     public function index(){
-        
-        $administradores = Administradores::all();
-        $blog = Blog::all();
 
-        return view("paginas.administradores", array("administradores"=>$administradores, "blog"=>$blog));
+		// $administradores = Administradores::all();
+		// $blog = Blog::all();
 
-    }
+
+		// return view("paginas.administradores", array("administradores"=>$administradores, "blog"=>$blog));
+
+		if(request()->ajax()){
+
+			  return datatables()->of(Administradores::all())
+			  ->addColumn('acciones', function($data){
+
+			  	$acciones = '<div class="btn-group">
+								
+								<a href="'.url()->current().'/'.$data->id.'" class="btn btn-warning btn-sm">
+									<i class="fas fa-pencil-alt text-white"></i>
+								</a>
+
+								<button class="btn btn-danger btn-sm eliminarRegistro" action="'.url()->current().'/'.$data->id.'" method="DELETE" pagina="administradores" token="'.csrf_token().'">
+								<i class="fas fa-trash-alt"></i>
+								</button>
+
+			  				</div>';
+
+			  	return $acciones;
+
+			  })
+			  ->rawColumns(['acciones'])
+			  -> make(true);
+
+		}
+
+		$blog = Blog::all();
+		$administradores = Administradores::all();
+
+		return view("paginas.administradores", array("blog"=>$blog, "administradores"=>$administradores));
+
+	}
 
     // Mostrar un usuario
     public function show($id){
@@ -144,7 +175,7 @@ class AdministradoresController extends Controller
         $validar = Administradores::where("id", $id)->get();
         
         if(!empty($validar) && $id != 1){
-            
+
             if($validar[0]["foto"] != "")
             {
                 if(!empty($validar[0]["foto"])){
