@@ -171,7 +171,8 @@ $(document).on("click", ".eliminarRegistro", function(){
     var action = $(this).attr("action");
     var method = $(this).attr("method");
     var pagina = $(this).attr("pagina");
-    var token = $(this).children("[name='_token']").attr("value");
+    // var token = $(this).children("[name='_token']").attr("value");
+    var token = $(this).attr("token");
 
     swal({
         title: 'Está seguro de eliminar este registro?',
@@ -268,15 +269,43 @@ var tablaAdministradores = $("#tablaAdministradores").DataTable({
         },
         {
            data: 'foto',
-           name: 'foto'
+           name: 'foto',
+           render: function(data, type, full, meta){
+
+            if(data == null){
+
+                return '<img src="'+ruta+'/img/administradores/admin.png" class="img-fluid rounded-circle">'
+
+                }else{
+
+                    return '<img src="'+ruta+'/'+data+'" class="img-fluid rounded-circle">'
+                }
+
+            },
+            orderable: false
         },
         {
           data: 'rol',
-          name: 'rol'
+          name: 'rol',
+          render: function(data, type, full, meta){
+
+              if(data == null){
+
+                  return 'administrador'
+
+              }else{
+
+                  return data
+              }
+
+          },
+
+          orderable: true
+
         },
         {
-          data: 'id',
-          name: 'id'
+          data: 'acciones',
+          name: 'acciones'
         }
 	],
  	"language": {
